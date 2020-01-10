@@ -1,0 +1,10 @@
+D:\School\Jaar_5\Data Science\Prediction\Forecasting\Assignment3_Forecasting\Assignment3_Forecasting\bin\Debug\Assignment3_Forecasting.exe.config
+D:\School\Jaar_5\Data Science\Prediction\Forecasting\Assignment3_Forecasting\Assignment3_Forecasting\bin\Debug\Assignment3_Forecasting.exe
+D:\School\Jaar_5\Data Science\Prediction\Forecasting\Assignment3_Forecasting\Assignment3_Forecasting\bin\Debug\Assignment3_Forecasting.pdb
+D:\School\Jaar_5\Data Science\Prediction\Forecasting\Assignment3_Forecasting\Assignment3_Forecasting\obj\Debug\Assignment3_Forecasting.csprojAssemblyReference.cache
+D:\School\Jaar_5\Data Science\Prediction\Forecasting\Assignment3_Forecasting\Assignment3_Forecasting\obj\Debug\Assignment3_Forecasting.Form1.resources
+D:\School\Jaar_5\Data Science\Prediction\Forecasting\Assignment3_Forecasting\Assignment3_Forecasting\obj\Debug\Assignment3_Forecasting.Properties.Resources.resources
+D:\School\Jaar_5\Data Science\Prediction\Forecasting\Assignment3_Forecasting\Assignment3_Forecasting\obj\Debug\Assignment3_Forecasting.csproj.GenerateResource.cache
+D:\School\Jaar_5\Data Science\Prediction\Forecasting\Assignment3_Forecasting\Assignment3_Forecasting\obj\Debug\Assignment3_Forecasting.csproj.CoreCompileInputs.cache
+D:\School\Jaar_5\Data Science\Prediction\Forecasting\Assignment3_Forecasting\Assignment3_Forecasting\obj\Debug\Assignment3_Forecasting.exe
+D:\School\Jaar_5\Data Science\Prediction\Forecasting\Assignment3_Forecasting\Assignment3_Forecasting\obj\Debug\Assignment3_Forecasting.pdb
