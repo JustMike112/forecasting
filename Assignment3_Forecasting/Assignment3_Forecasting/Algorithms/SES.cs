@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assignment3_Forecasting.Algorithms
 {
-    class SES : Smoothing
+    class SES : ISmoothing
     {
         private List<double> data;
         public double alpha;

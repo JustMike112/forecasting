@@ -48,7 +48,7 @@
   <ItemGroup>
     <Compile Include="Algorithms\DES.cs" />
     <Compile Include="Algorithms\SES.cs" />
-    <Compile Include="Algorithms\Smoothing.cs" />
+    <Compile Include="Algorithms\ISmoothing.cs" />
     <Compile Include="Algorithms\TES.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

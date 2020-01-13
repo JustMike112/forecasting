@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assignment3_Forecasting.Algorithms
 {
-    interface Smoothing
+    interface ISmoothing
     {
         List<double> CalculateSmoothing(int forecastAmount);
         void BestValues();
