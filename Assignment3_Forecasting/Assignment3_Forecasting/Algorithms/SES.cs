@@ -9,13 +9,13 @@ namespace Assignment3_Forecasting.Algorithms
     class SES : ISmoothing
     {
         private List<double> data;
-        public double alpha;
-        public double SSE;
+        private double alpha;
+        private double SSE;
 
         public SES(List<double> dataSet)
         {
             data = dataSet;
-            BestValues();
+            SetBestValues();
         }
         public List<double> CalculateSmoothing(int forecastAmount)
         {
@@ -33,7 +33,7 @@ namespace Assignment3_Forecasting.Algorithms
             return dataSetSES;
         }
 
-        public void BestValues()
+        public void SetBestValues()
         {
             var alphaErrorSES = new List<Tuple<double, double>>();
 
@@ -56,6 +56,11 @@ namespace Assignment3_Forecasting.Algorithms
             var alphaErrorSESFinal = alphaErrorSES.Aggregate((l, r) => (l.Item2 < r.Item2) ? l : r);
             alpha =  alphaErrorSESFinal.Item1;
             SSE = alphaErrorSESFinal.Item2;
+        }
+
+        public Tuple<double, double> GetBestValues()
+        {
+            return new Tuple<double, double>(alpha, SSE);
         }
     }
 }

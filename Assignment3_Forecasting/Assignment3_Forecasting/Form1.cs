@@ -29,8 +29,6 @@ namespace Assignment3_Forecasting
             DES des = new DES(dataSet);
             TES tes = new TES(dataSet);
 
-            var x = tes.InitialSeasonalAdjustments();
-
             for (var i = 0; i < dataSet.Count; i++)
             {
                 chart1.Series["Data"].Points.AddXY(i + 1, dataSet[i]);
@@ -42,29 +40,33 @@ namespace Assignment3_Forecasting
                 chart1.Series["SES"].Points.AddXY(i + 1, dataSetSES[i]);
             }
 
-            var dataSetDES = des.CalculateSmoothing(12);
+            List<double> dataSetDES = des.CalculateSmoothing(12);
             for (var i = 0; i < dataSetDES.Count; i++)
             {
                 chart1.Series["DES"].Points.AddXY(i + 2, dataSetDES[i]);
             }
 
-            var dataSetTES = tes.CalculateSmoothing(12);
+            List<double> dataSetTES = tes.CalculateSmoothing(12);
             for (var i = 0; i < dataSetTES.Count; i++)
             {
                 chart1.Series["TES"].Points.AddXY(i + 1, dataSetTES[i]);
             }
 
-            textBox1.AppendText("Best Alpha for SES: " + ses.alpha + Environment.NewLine);
-            textBox1.AppendText("Best Error for SES: " + ses.SSE + Environment.NewLine + Environment.NewLine);
+            Tuple<double, double> valuesSES = ses.GetBestValues();
+            Tuple<double, double, double> valuesDES = des.GetBestValues();
+            Tuple<double, double, double, double> valuesTES = tes.GetBestValues();
 
-            textBox1.AppendText("Best Alpha for DES: " + des.alpha + Environment.NewLine);
-            textBox1.AppendText("Best Beta for DES: " + des.beta + Environment.NewLine);
-            textBox1.AppendText("Best Error for DES: " + des.SSE + Environment.NewLine + Environment.NewLine);
+            textBox1.AppendText("Best Alpha for SES: " + valuesSES.Item1 + Environment.NewLine);
+            textBox1.AppendText("Best Error for SES: " + valuesSES.Item2 + Environment.NewLine + Environment.NewLine);
 
-            textBox1.AppendText("Best Alpha for TES: " + tes.alpha + Environment.NewLine);
-            textBox1.AppendText("Best Beta for TES: " + tes.beta + Environment.NewLine);
-            textBox1.AppendText("Best Gamma for TES: " + tes.gamma + Environment.NewLine);
-            textBox1.AppendText("Best Error for TES: " + tes.SSE + Environment.NewLine);
+            textBox1.AppendText("Best Alpha for DES: " + valuesDES.Item1 + Environment.NewLine);
+            textBox1.AppendText("Best Beta for DES: " + valuesDES.Item2 + Environment.NewLine);
+            textBox1.AppendText("Best Error for DES: " + valuesDES.Item3 + Environment.NewLine + Environment.NewLine);
+
+            textBox1.AppendText("Best Alpha for TES: " + valuesTES.Item1 + Environment.NewLine);
+            textBox1.AppendText("Best Beta for TES: " + valuesTES.Item2 + Environment.NewLine);
+            textBox1.AppendText("Best Gamma for TES: " + valuesTES.Item3 + Environment.NewLine);
+            textBox1.AppendText("Best Error for TES: " + valuesTES.Item4 + Environment.NewLine);
         }
     }
 }

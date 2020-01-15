@@ -9,10 +9,10 @@ namespace Assignment3_Forecasting.Algorithms
     class TES : ISmoothing
     {
         private List<double> data;
-        public double alpha;
-        public double beta;
-        public double gamma;
-        public double SSE;
+        private double alpha;
+        private double beta;
+        private double gamma;
+        private double SSE;
 
         // these values were given using linear regression
         private readonly double intercept = 144.423542254481;
@@ -21,7 +21,7 @@ namespace Assignment3_Forecasting.Algorithms
         public TES(List<double> dataSet)
         {
             data = dataSet;
-            BestValues();
+            SetBestValues();
         }
 
         public List<double> CalculateSmoothing(int forecastAmount)
@@ -130,7 +130,7 @@ namespace Assignment3_Forecasting.Algorithms
             return seasons;
         }
 
-        public void BestValues()
+        public void SetBestValues()
         {
             double bestSSE = 100000000.0;
             double bestAlpha = 0.0;
@@ -163,5 +163,11 @@ namespace Assignment3_Forecasting.Algorithms
             beta = bestBeta;
             gamma = bestGamma;
         }
+
+        public Tuple<double, double, double, double> GetBestValues()
+        {
+            return new Tuple<double, double, double, double>(alpha, beta, gamma, SSE);
+        }
+
     }
 }

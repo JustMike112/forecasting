@@ -8,15 +8,15 @@ namespace Assignment3_Forecasting.Algorithms
 {
     class DES : ISmoothing
     {
-        public List<double> data;
-        public double alpha;
-        public double beta;
-        public double SSE;
+        private List<double> data;
+        private double alpha;
+        private double beta;
+        private double SSE;
 
         public DES(List<double> dataSet)
         {
             data = dataSet;
-            BestValues();
+            SetBestValues();
         }
 
         public List<double> CalculateSmoothing(int forecastAmount)
@@ -51,7 +51,7 @@ namespace Assignment3_Forecasting.Algorithms
             return dataSetForecastDES;
         }
 
-        public void BestValues()
+        public void SetBestValues()
         {
             var alphaBetaErrorDES = new List<Tuple<double, double, double>>();
 
@@ -84,6 +84,11 @@ namespace Assignment3_Forecasting.Algorithms
             alpha = alphaBetaErrorDESFinal.Item1;
             beta = alphaBetaErrorDESFinal.Item2;
             SSE = alphaBetaErrorDESFinal.Item3;
+        }
+
+        public Tuple<double, double, double> GetBestValues()
+        {
+            return new Tuple<double, double, double>(alpha, beta, SSE);
         }
     }
 }

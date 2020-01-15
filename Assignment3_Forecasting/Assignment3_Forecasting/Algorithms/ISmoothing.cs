@@ -9,6 +9,6 @@ namespace Assignment3_Forecasting.Algorithms
     interface ISmoothing
     {
         List<double> CalculateSmoothing(int forecastAmount);
-        void BestValues();
+        void SetBestValues();
     }
 }
