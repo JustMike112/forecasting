@@ -11,8 +11,8 @@ namespace Assignment3_Forecasting.Utils
     {
         public static List<double> Parse(string file, char delimiter)
         {
-            var dataSet = File.ReadAllLines(file).Select(
-                    line => double.Parse(line.Split(delimiter).ElementAt(1)))
+            var dataSet = File.ReadAllLines(file)
+                .Select(line => double.Parse(line.Split(delimiter).ElementAt(1)))
                 .ToList();
             return dataSet;
         }

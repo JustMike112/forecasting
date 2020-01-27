@@ -26,7 +26,6 @@ namespace Assignment3_Forecasting.Algorithms
 
         public List<double> CalculateSmoothing(int forecastAmount)
         {
-            Console.WriteLine("alpha = " + alpha + ", beta = " + beta + ", gamma = " + gamma);
             var forecast = Forecast(forecastAmount);
 
             return forecast.Item1;
@@ -73,18 +72,12 @@ namespace Assignment3_Forecasting.Algorithms
                 dataSetForecastTES.Add(dataSetTES[i]);
             }
 
-            for (int i = 0; i < dataSetForecastTES.Count; i++)
-            {
-                Console.WriteLine(dataSetForecastTES[i]);
-            }
-
             return new Tuple<List<double>, double>(dataSetForecastTES, localSSE);
         }
 
         // take the average of the surrounding 12 months both ways (for t=7 use the average of (t=1->12) and (t=2->13))
         public List<double> InitialSeasonalAdjustments()
         {
-            var total_amount = data.Count;
             List<double> movingAverages = new List<double>();
             List<double> skew = new List<double>();
             List<double> seasons = new List<double>();
@@ -132,18 +125,18 @@ namespace Assignment3_Forecasting.Algorithms
 
         public void SetBestValues()
         {
-            double bestSSE = 100000000.0;
+            double bestSSE = double.MaxValue;
             double bestAlpha = 0.0;
             double bestBeta = 0.0;
             double bestGamma = 0.0;
 
-            for (double a = 0.0; a < 1.0; a += 0.1)
+            for (double a = 0.0; a < 1.0; a += 0.01)
             {
                 alpha = a;
-                for (double b = 0.0; b < 1.0; b += 0.1)
+                for (double b = 0.0; b < 1.0; b += 0.01)
                 {
                     beta = b;
-                    for (double c = 0.0; c < 1.0; c += 0.1)
+                    for (double c = 0.0; c < 1.0; c += 0.01)
                     {
                         gamma = c;
                         var forecast = Forecast(0);
