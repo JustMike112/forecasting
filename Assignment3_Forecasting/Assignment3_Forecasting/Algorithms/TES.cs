@@ -14,7 +14,7 @@ namespace Assignment3_Forecasting.Algorithms
         private double gamma;
         private double SSE;
 
-        // these values were given using linear regression
+        // these values were given using linear regression -> look at excel sheet
         private readonly double intercept = 144.423542254481;
         private readonly double rico = 2.29045000493894;
 
