@@ -8,6 +8,7 @@ namespace Assignment3_Forecasting.Algorithms
 {
     class SES : ISmoothing
     {
+		//this was a test
         private List<double> data;
         private double alpha;
         private double SSE;
